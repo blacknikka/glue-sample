@@ -4,7 +4,7 @@ terraform {
     region  = "ap-northeast-1"
     encrypt = true
 
-    bucket = "terraform-bucket-fortfstate"
+    bucket = "terraform-bucket-for-tfstate"
     key    = "glue-sample-terraform.tfstate"
   }
 }
