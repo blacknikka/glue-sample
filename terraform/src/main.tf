@@ -22,5 +22,5 @@ module "network" {
 module "s3" {
   source = "./modules/s3"
 
-  app_name = var.base_name
+  bucket_name = "${var.base_name}-etl-target-bucket"
 }
