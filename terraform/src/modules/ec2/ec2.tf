@@ -4,6 +4,7 @@ resource "aws_instance" "app" {
   instance_type          = "t2.micro"
   subnet_id              = var.subnet_for_app.id
   vpc_security_group_ids = [aws_security_group.for_app_server.id]
+  key_name               = aws_key_pair.keypair.id
 
   tags = {
     Name = "${var.base_name}-ec2"
@@ -32,4 +33,9 @@ resource "aws_security_group" "for_app_server" {
   tags = {
     Name = "allow only 80"
   }
+}
+
+resource "aws_key_pair" "keypair" {
+  key_name   = "for-etl"
+  public_key = file("${path.module}/util/keypair.pub")
 }
