@@ -31,7 +31,7 @@ resource "aws_security_group" "for_app_server" {
   }
 
   tags = {
-    Name = "allow only 80"
+    Name = "allow all traffic"
   }
 }
 
