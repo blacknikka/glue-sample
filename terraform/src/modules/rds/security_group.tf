@@ -5,7 +5,8 @@ resource "aws_security_group" "praivate_db_sg" {
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    security_groups = var.source_security_group_ids
+    # security_groups = var.source_security_group_ids
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -14,7 +15,6 @@ resource "aws_security_group" "praivate_db_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
   tags = {
     Name = "public-db-sg"
   }
